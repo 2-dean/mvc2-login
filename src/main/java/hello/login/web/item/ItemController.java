@@ -22,9 +22,11 @@ import java.util.List;
 public class ItemController {
 
     private final ItemRepository itemRepository;
+    // 해당페이지 전체에서 로그인 여부 체크
 
     @GetMapping
     public String items(Model model) {
+        // 로그인 여부 체크
         List<Item> items = itemRepository.findAll();
         model.addAttribute("items", items);
         return "items/items";
